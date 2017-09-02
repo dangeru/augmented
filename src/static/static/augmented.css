@@ -1,0 +1,64 @@
+@font-face {
+	font-family: 'CyberpunkWaifus';
+	src: url('CyberpunkWaifus.eot');
+	src: url('CyberpunkWaifus.eot?#iefix') format('embedded-opentype'),
+		url('CyberpunkWaifus.woff') format('woff'),
+		url('CyberpunkWaifus.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+  background-color: #000;
+  max-width: 100%;
+  max-height: 100%;
+  color: #19001D;
+  overflow-x: hidden;
+  font-family: 'CyberpunkWaifus';
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	image-rendering: -moz-crisp-edges;         /* Firefox */
+	image-rendering:   -o-crisp-edges;         /* Opera */
+	image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+	image-rendering: crisp-edges;
+	-ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#logo {
+	margin-bottom: 15px;
+}
+
+#banner {
+  background-color: #5D0B31;
+  width: 100%;
+  height: 70px;
+}
+
+#postcontainer {
+  background-color: #E8C8CB;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+#bodycontainer {
+  max-width: 400px;
+  width: auto;
+  display: table;
+  margin: 0 auto;
+}
