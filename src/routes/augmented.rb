@@ -86,6 +86,10 @@ module Sinatra
           app.get "/article/:id" do |id|
             erb :aug_article, :locals => {:con => make_con(), :id => id}
           end
+
+          app.get "/tag/:tag" do |id|
+            erb :aug_article, :locals => {:con => make_con(), :tag => tag}
+          end
         end
       end
     end

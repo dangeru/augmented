@@ -1,12 +1,13 @@
 <!DOCTYPE HTML>
 <HTML>
   <head>
-    <title>The Augmented Eye</title>
+    <title>Searching by tag #<%= tag %> - The Augmented Eye</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <img src="static/augmented.png" alt="Augmented" /><br>
-    <% con.query("SELECT * FROM posts WHERE is_op=1 ORDER BY post_id DESC;").each do |res| %>
+    <img src="/static/augmented.png" alt="Augmented" />
+    <div id="title">Searching by tag #<%= tag %></div>
+    <% con.query("SELECT * FROM posts WHERE is_op=1 AND tag=" + con.escape(tag) + " ORDER BY post_id DESC;").each do |res| %>
         <span class="post_number">Author: <%= Sanitize.clean(res["author"]) %>, tagged under: <a href="/tag/<%= res["tag"] %>">#<%= res["tag"] %></a></span><br>
         <a href="/article/<%= res["post_id"] %>"><%= Sanitize.clean(res["title"]) %></a><br><br>
     <% end %>
