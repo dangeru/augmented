@@ -71,3 +71,15 @@ a:visited {
 .post {
   font-size: 18px;
 }
+
+.title {
+  font-size: 28px;
+}
+
+.author {
+  color: #ED145B;
+}
+
+.label {
+  color: #FFF;
+}

@@ -13,17 +13,17 @@
           <script>
             document.title =  "<%= Sanitize.clean(res["title"]) %> - The Augmented Eye";
           </script>
-          <div id="title"><%= Sanitize.clean(res["title"]) %></div>
-          <div id="author">By <%= Sanitize.clean(res["author"]) %></div>
+          <div class="title"><%= Sanitize.clean(res["title"]) %></div>
+          <div class="author">By <%= Sanitize.clean(res["author"]) %></div>
           <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
         <% end %>
       </div>
       <% con.query("SELECT * FROM posts WHERE parent=" + con.escape(id)).each do |res| %>
-        <div id="author">Author: <%= Sanitize.clean(res["author"]) %>, Date: <%= res["date_posted"] %></div>
+        <div id="author" class="label">Author: <%= Sanitize.clean(res["author"]) %>, Date: <%= res["date_posted"] %></div>
         <pre id="content">| <%= Sanitize.clean(res["content"]) %></pre>
       <% end %>
       <form action="/comment" method="POST">
-        <input type="input" name="author" value="" style="float: left;"> <span id="author">Name</span><br><br><span id="author">Comment</span>
+        <input type="input" name="author" value="" style="float: left;"> <span class="label">Name</span><br><br><span class="label">Comment</span>
 			  <textarea rows="5" cols="50" style="display: block; margin-right: 10px; width: 285px; height:100px;" name="body"></textarea>
 			  <input type="submit" name="submit" value="Send" style="float: right;"><br>
         <input type='text' style='display: none' name='parent' id='parent' value='<%= id %>' />
