@@ -56,7 +56,14 @@ module Sinatra
 
           app.post '/comment' do
             con = make_con()
-            
+
+            content = params[:body]
+            author = params[:author]
+            parent = params[:parent]
+            ip = get_ip(con, request, env);
+
+            query(con, "INSERT INTO posts (content, author, ip, is_op, parent) VALUES (?, ?, ?, ?, ?)", content, author, ip, 0, parent);
+            redirect("/article/" + parent, 303);
           end
 
           app.get "/article/:id" do |id|

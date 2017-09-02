@@ -19,7 +19,7 @@
       <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
     <% end %>
     <form action="/comment" method="POST">
-      <input type="input" name="name" value="" style="float: left;"> <span id="author">Name</span><br><br><span id="author">Comment</span>
+      <input type="input" name="author" value="" style="float: left;"> <span id="author">Name</span><br><br><span id="author">Comment</span>
 			<textarea rows="5" cols="50" style="display: block; margin-right: 10px; width: 285px; height:100px;" name="body"></textarea>
 			<input type="submit" name="submit" value="Send" style="float: right;"><br>
       <input type='text' style='display: none' name='parent' id='parent' value='<%= id %>' />
