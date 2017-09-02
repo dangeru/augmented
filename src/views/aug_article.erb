@@ -10,7 +10,7 @@
       <script>
         document.title =  "<%= Sanitize.clean(res["title"]) %> - The Augmented Eye";
       </script>
-      <div id="title"><%= Sanitize.clean(res["title"]) %></div><br>
+      <div id="title"><%= Sanitize.clean(res["title"]) %></div>
       <div id="author">By <%= Sanitize.clean(res["author"]) %></div>
       <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
     <% end %>
