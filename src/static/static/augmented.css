@@ -64,6 +64,10 @@ a:visited {
   margin: 0 auto;
 }
 
+#articlecontainer {
+  text-align: left;
+}
+
 .meta {
 	font-size: small;
 }
@@ -73,7 +77,7 @@ a:visited {
 }
 
 .title {
-  font-size: 28px;
+  font-size: 26px;
 }
 
 .author {
