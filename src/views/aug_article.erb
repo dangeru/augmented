@@ -5,7 +5,7 @@
   </head>
 
   <body>
-    <img src="static/augmented.png" alt="Augmented" />
+    <img src="/static/augmented.png" alt="Augmented" />
     <% con.query("SELECT * FROM posts WHERE post_id=" + id).each do |res| %>
       <div id="title"><%= res["title"] %></div><br>
       <div id="author">By <%= res["author"] %></div><br>
