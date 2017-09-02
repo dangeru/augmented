@@ -67,3 +67,7 @@ a:visited {
 .meta {
 	font-size: small;
 }
+
+.post {
+  font-size: 20px;
+}
