@@ -3,27 +3,31 @@
   <head>
     <title>Loading... - The Augmented Eye</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/augmented.css">
   </head>
-
   <body>
-    <img src="/static/augmented.png" alt="Augmented" />
-    <% con.query("SELECT * FROM posts WHERE post_id=" + con.escape(id)).each do |res| %>
-      <script>
-        document.title =  "<%= Sanitize.clean(res["title"]) %> - The Augmented Eye";
-      </script>
-      <div id="title"><%= Sanitize.clean(res["title"]) %></div>
-      <div id="author">By <%= Sanitize.clean(res["author"]) %></div>
-      <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
-    <% end %>
-    <% con.query("SELECT * FROM posts WHERE parent=" + con.escape(id)).each do |res| %>
-      <div id="author">Author: <%= Sanitize.clean(res["author"]) %>, Date: <%= res["date_posted"] %></div>
-      <pre id="content">| <%= Sanitize.clean(res["content"]) %></pre>
-    <% end %>
-    <form action="/comment" method="POST">
-      <input type="input" name="author" value="" style="float: left;"> <span id="author">Name</span><br><br><span id="author">Comment</span>
-			<textarea rows="5" cols="50" style="display: block; margin-right: 10px; width: 285px; height:100px;" name="body"></textarea>
-			<input type="submit" name="submit" value="Send" style="float: right;"><br>
-      <input type='text' style='display: none' name='parent' id='parent' value='<%= id %>' />
-    </form>
+    <div id="bodycontainer">
+      <img src="/static/augmented.png" alt="Augmented" />
+      <div id="postcontainer">
+        <% con.query("SELECT * FROM posts WHERE post_id=" + con.escape(id)).each do |res| %>
+          <script>
+            document.title =  "<%= Sanitize.clean(res["title"]) %> - The Augmented Eye";
+          </script>
+          <div id="title"><%= Sanitize.clean(res["title"]) %></div>
+          <div id="author">By <%= Sanitize.clean(res["author"]) %></div>
+          <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
+        <% end %>
+      </div>
+      <% con.query("SELECT * FROM posts WHERE parent=" + con.escape(id)).each do |res| %>
+        <div id="author">Author: <%= Sanitize.clean(res["author"]) %>, Date: <%= res["date_posted"] %></div>
+        <pre id="content">| <%= Sanitize.clean(res["content"]) %></pre>
+      <% end %>
+      <form action="/comment" method="POST">
+        <input type="input" name="author" value="" style="float: left;"> <span id="author">Name</span><br><br><span id="author">Comment</span>
+			  <textarea rows="5" cols="50" style="display: block; margin-right: 10px; width: 285px; height:100px;" name="body"></textarea>
+			  <input type="submit" name="submit" value="Send" style="float: right;"><br>
+        <input type='text' style='display: none' name='parent' id='parent' value='<%= id %>' />
+      </form>
+    </div>
   </body>
 </html>
