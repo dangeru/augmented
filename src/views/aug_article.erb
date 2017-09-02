@@ -9,7 +9,7 @@
     <% con.query("SELECT * FROM posts WHERE post_id=" + id).each do |res| %>
       <div id="title"><%= res["title"] %></div><br>
       <div id="author">By <%= res["author"] %></div><br>
-      <div id="content"><%= res["content"] %></div>
+      <pre id="content"><%= res["content"] %></div>
     <% end %>
   </body>
 </html>
