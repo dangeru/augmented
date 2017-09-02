@@ -104,7 +104,7 @@ module Sinatra
 
           app.post '/author' do
             config["authors"].each do |author|
-              if author["username"] == username and author["password"] == password then
+              if author["username"] == params[:login] and params[:passwd] ==  then
                 redirect('/author', 303)
               end
             end
