@@ -38,6 +38,10 @@ a:visited {
   color: #19001D;
 }
 
+pre {
+  font-family: 'CyberpunkWaifus';
+}
+
 #logo {
 	margin-bottom: 15px;
 }
@@ -66,6 +70,7 @@ a:visited {
 
 #articlecontainer {
   text-align: left;
+  margin-left: 5px;
 }
 
 .meta {
