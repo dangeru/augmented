@@ -50,23 +50,31 @@ module Sinatra
           end
 
           app.get '/post' do
-            erb :aug_post
+            if session[:author].nil? then
+              return [403, "You are not an author."]
+            else
+              erb :aug_post
+            end
           end
 
           app.post '/post' do
-            con = make_con()
+            if session[:author].nil? then
+              return [403, "You are not an author."]
+            else
+              con = make_con()
 
-            title = params[:title]
-            content = params[:body]
-            author = params[:author]
-            tag = params[:tag]
-            ip = get_ip(con, request, env);
+              title = params[:title]
+              content = params[:body]
+              author = params[:author]
+              tag = params[:tag]
+              ip = get_ip(con, request, env);
 
-            query(con, "INSERT INTO posts (title, content, author, ip, is_op, tag) VALUES (?, ?, ?, ?, ?, ?)", title, content, author, ip, 1, tag);
+              query(con, "INSERT INTO posts (title, content, author, ip, is_op, tag) VALUES (?, ?, ?, ?, ?, ?)", title, content, author, ip, 1, tag);
 
-            query(con, "SELECT LAST_INSERT_ID() AS id").each do |res|
-              href = "/article/" + res["id"].to_s
-              redirect(href, 303);
+              query(con, "SELECT LAST_INSERT_ID() AS id").each do |res|
+                href = "/article/" + res["id"].to_s
+                redirect(href, 303);
+              end
             end
           end
 
