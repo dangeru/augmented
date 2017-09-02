@@ -11,7 +11,7 @@
       <div id="postcontainer"><br>
         <% con.query("SELECT * FROM posts WHERE is_op=1 ORDER BY post_id DESC;").each do |res| %>
           <span class="meta">Author: <%= Sanitize.clean(res["author"]) %>, tagged under: <a href="/tag/<%= res["tag"] %>">#<%= res["tag"] %></a></span><br>
-          <a href="/article/<%= res["post_id"] %>" class="link"><%= Sanitize.clean(res["title"]) %></a><br><br>
+          <a href="/article/<%= res["post_id"] %>" class="post"><%= Sanitize.clean(res["title"]) %></a><br><br>
         <% end %>
       </div>
     </div>
