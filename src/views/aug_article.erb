@@ -15,8 +15,8 @@
       <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
     <% end %>
     <% con.query("SELECT * FROM posts WHERE parent=" + id).each do |res| %>
-      <div id="author">By <%= Sanitize.clean(res["author"]) %></div>
-      <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
+      <div id="author">Author: <%= Sanitize.clean(res["author"]) %>, Date: <%= res["date_posted"] %></div>
+      <pre id="content">| <%= Sanitize.clean(res["content"]) %></pre>
     <% end %>
     <form action="/comment" method="POST">
       <input type="input" name="author" value="" style="float: left;"> <span id="author">Name</span><br><br><span id="author">Comment</span>
