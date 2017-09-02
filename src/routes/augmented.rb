@@ -90,6 +90,23 @@ module Sinatra
           app.get "/tag/:tag" do |tag|
             erb :aug_tag, :locals => {:con => make_con(), :tag => tag}
           end
+
+          app.get '/author' do
+            if session[:author].nil? do
+              erb :aug_login
+            else
+              "Hello author."
+            end
+          end
+
+          app.post '/author' do
+            config["janitors"].each do |janitor|
+              if janitor["username"] == username and janitor["password"] == password then
+                redirect('/author', 303)
+              end
+            end
+            return [403, "Check your username and password"]
+          end
         end
       end
     end
