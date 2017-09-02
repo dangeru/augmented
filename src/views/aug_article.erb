@@ -7,7 +7,7 @@
   </head>
   <body>
     <div id="bodycontainer">
-      <img src="/static/augmented.png" alt="Augmented" />
+      <a href="/"><img src="/static/augmented.png" alt="Augmented" /></a>
       <div id="postcontainer">
         <% con.query("SELECT * FROM posts WHERE post_id=" + con.escape(id)).each do |res| %>
           <script>
