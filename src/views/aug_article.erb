@@ -11,11 +11,11 @@
         document.title =  "<%= Sanitize.clean(res["title"]) %> - The Augmented Eye";
       </script>
       <div id="title"><%= Sanitize.clean(res["title"]) %></div><br>
-      <div id="author">By <%= Sanitize.clean(res["author"]) %></div><br>
+      <div id="author">By <%= Sanitize.clean(res["author"]) %></div>
       <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
     <% end %>
     <% con.query("SELECT * FROM posts WHERE parent=" + id).each do |res| %>
-      <div id="author">By <%= Sanitize.clean(res["author"]) %></div><br>
+      <div id="author">By <%= Sanitize.clean(res["author"]) %></div>
       <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
     <% end %>
     <form action="/comment" method="POST">
