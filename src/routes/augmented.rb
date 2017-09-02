@@ -15,6 +15,10 @@ module Sinatra
           app.get '/' do
             erb :aug_index
           end
+
+          app.get '/post' do
+            erb :aug_post
+          end
         end
       end
     end
