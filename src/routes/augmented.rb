@@ -103,8 +103,8 @@ module Sinatra
           end
 
           app.post '/author' do
-            config["janitors"].each do |janitor|
-              if janitor["username"] == username and janitor["password"] == password then
+            config["authors"].each do |author|
+              if author["username"] == username and author["password"] == password then
                 redirect('/author', 303)
               end
             end
