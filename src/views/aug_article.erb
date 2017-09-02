@@ -7,9 +7,12 @@
   <body>
     <img src="/static/augmented.png" alt="Augmented" />
     <% con.query("SELECT * FROM posts WHERE post_id=" + id).each do |res| %>
-      <div id="title"><%= res["title"] %></div><br>
-      <div id="author">By <%= res["author"] %></div><br>
-      <pre id="content"><%= res["content"] %></div>
+      <script>
+        document.title = <%= Sanitize.clean(res["title"]) %> + " - The Augmented Eye";
+      </script>
+      <div id="title"><%= Sanitize.clean(res["title"]) %></div><br>
+      <div id="author">By <%= Sanitize.clean(res["author"]) %></div><br>
+      <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
     <% end %>
   </body>
 </html>
