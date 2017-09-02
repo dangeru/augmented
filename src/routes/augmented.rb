@@ -53,6 +53,10 @@ module Sinatra
               redirect(href, 303);
             end
           end
+
+          app.get "/article/:id" do |id|
+            erb :aug_article, :locals => {:con => make_con(), :id => id}
+          end
         end
       end
     end
