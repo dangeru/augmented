@@ -3,6 +3,7 @@ CREATE DATABASE augmented;
 GRANT ALL ON augmented.* TO augmented@'%' IDENTIFIED BY 'augmented';
 USE augmented;
 CREATE TABLE posts (
+  post_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	title TEXT,
 	author TEXT NOT NULL,
   is_op BOOLEAN NOT NULL,
