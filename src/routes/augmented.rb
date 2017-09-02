@@ -5,7 +5,24 @@
 #
 
 
-#require 'mysql2'
+require 'mysql2'
+require 'sanitize'
+
+def make_con()
+  return Mysql2::Client.new(:host => "localhost", :username => "augmented", :password => "augmented", :database => "augmented")
+end
+
+def query(con, stmt, *args)
+  return con.prepare(stmt).execute(*args)
+end
+
+def get_ip(con, request, env)
+  ip = request.ip
+  if ip == "127.0.0.1"
+    ip = env["HTTP_X_FORWARDED_FOR"]
+  end
+  return ip
+end
 
 module Sinatra
   module Augmented
@@ -18,6 +35,15 @@ module Sinatra
 
           app.get '/post' do
             erb :aug_post
+          end
+
+          app.post '/post' do
+            con = make_con()
+
+            title = params[:title]
+            content = params[:content]
+            is_op = 1
+
           end
         end
       end
