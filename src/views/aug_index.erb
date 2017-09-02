@@ -5,7 +5,7 @@
   </head>
   <body>
     <img src="static/augmented.png" alt="Augmented" />
-    <% con.query("SELECT * FROM posts WHERE is_op=1; ORDER BY post_id DESC;").each do |res| %>
+    <% con.query("SELECT * FROM posts WHERE is_op=1 ORDER BY post_id DESC;").each do |res| %>
         <a href="/article/<%= res["post_id"] %>"><%= Sanitize.clean(res["title"]) %></a><br>
     <% end %>
   </body>
