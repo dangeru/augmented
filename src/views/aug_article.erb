@@ -14,7 +14,7 @@
       <div id="author">By <%= Sanitize.clean(res["author"]) %></div>
       <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
     <% end %>
-    <% con.query("SELECT * FROM posts WHERE parent=" + id).each do |res| %>
+    <% con.query("SELECT * FROM posts WHERE parent=" + con.escape(id)).each do |res| %>
       <div id="author">Author: <%= Sanitize.clean(res["author"]) %>, Date: <%= res["date_posted"] %></div>
       <pre id="content">| <%= Sanitize.clean(res["content"]) %></pre>
     <% end %>
