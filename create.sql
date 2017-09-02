@@ -10,6 +10,6 @@ CREATE TABLE posts (
   is_op BOOLEAN NOT NULL,
   parent INTEGER,
   ip TEXT NOT NULL,
-  tag TEXT NOT NULL,
+  tag TEXT,
   date_posted DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

@@ -54,6 +54,11 @@ module Sinatra
             end
           end
 
+          app.post '/comment' do
+            con = make_con()
+            
+          end
+
           app.get "/article/:id" do |id|
             erb :aug_article, :locals => {:con => make_con(), :id => id}
           end

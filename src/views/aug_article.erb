@@ -6,7 +6,7 @@
 
   <body>
     <img src="/static/augmented.png" alt="Augmented" />
-    <% con.query("SELECT * FROM posts WHERE post_id=" + id).each do |res| %>
+    <% con.query("SELECT * FROM posts WHERE post_id=" + con.escape(id)).each do |res| %>
       <script>
         document.title =  "<%= Sanitize.clean(res["title"]) %> - The Augmented Eye";
       </script>
@@ -14,5 +14,15 @@
       <div id="author">By <%= Sanitize.clean(res["author"]) %></div><br>
       <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
     <% end %>
+    <% con.query("SELECT * FROM posts WHERE parent=" + id).each do |res| %>
+      <div id="author">By <%= Sanitize.clean(res["author"]) %></div><br>
+      <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
+    <% end %>
+    <form action="/comment" method="POST">
+      <input type="input" name="name" value="" style="float: left;"> <span id="author">Name</span><br><br><span id="author">Comment</span>
+			<textarea rows="5" cols="50" style="display: block; margin-right: 10px; width: 285px; height:100px;" name="body"></textarea>
+			<input type="submit" name="submit" value="Send" style="float: right;"><br>
+      <input type='text' style='display: none' name='parent' id='parent' value='<%= id %>' />
+    </form>
   </body>
 </html>
