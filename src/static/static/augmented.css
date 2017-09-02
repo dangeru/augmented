@@ -52,6 +52,10 @@ pre {
   height: 70px;
 }
 
+#content {
+  font-size: 17px;
+}
+
 #postcontainer {
   background-color: #E8C8CB;
   margin-left: auto;
@@ -88,6 +92,7 @@ pre {
 
 .author {
   color: #ED145B;
+  font-size: 17px;
 }
 
 .label {
