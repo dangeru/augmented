@@ -1,6 +1,6 @@
 ############################################
 # => boards.rb - Augmented Renderer
-# => Awoo Textboard Engine
+# => Augmented Blog/News Engine
 # => (c) prefetcher & github commiters 2017
 #
 
