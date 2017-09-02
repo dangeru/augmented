@@ -30,7 +30,7 @@ module Sinatra
       module Augmented
         def self.registered(app)
           app.get '/' do
-            erb :aug_index
+            erb :aug_index, :locals => {:con => make_con()}
           end
 
           app.get '/post' do
