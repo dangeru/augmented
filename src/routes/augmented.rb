@@ -42,6 +42,9 @@ module Sinatra
     module Routing
       module Augmented
         def self.registered(app)
+          config_raw = File.read('aug_config.json')
+          config = JSON.parse(config_raw)
+
           app.get '/' do
             erb :aug_index, :locals => {:con => make_con()}
           end
