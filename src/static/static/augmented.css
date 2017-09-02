@@ -34,6 +34,10 @@ a:hover {
 	text-decoration: underline;
 }
 
+a:visited {
+  color: #19001D;
+}
+
 #logo {
 	margin-bottom: 15px;
 }
@@ -48,6 +52,7 @@ a:hover {
   background-color: #E8C8CB;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
   position: relative;
   width: 100%;
 }
