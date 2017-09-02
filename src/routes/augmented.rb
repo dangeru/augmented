@@ -41,9 +41,17 @@ module Sinatra
             con = make_con()
 
             title = params[:title]
-            content = params[:content]
-            is_op = 1
+            content = params[:body]
+            author = params[:author]
+            tag = params[:tag]
+            ip = get_ip(con, request, env);
 
+            query(con, "INSERT INTO posts (title, content, author, ip, is_op, tag) VALUES (?, ?, ?, ?, ?, ?)", title, content, author, ip, 1, tag);
+
+            query(con, "SELECT LAST_INSERT_ID() AS id").each do |res|
+              href = "/article/" + res["id"].to_s
+              redirect(href, 303);
+            end
           end
         end
       end
