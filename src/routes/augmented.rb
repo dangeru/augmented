@@ -95,7 +95,7 @@ module Sinatra
           end
 
           app.get '/author' do
-            if session[:author].nil? do
+            if session[:author].nil? then
               erb :aug_login
             else
               "Hello author."
