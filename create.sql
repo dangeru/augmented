@@ -9,5 +9,6 @@ CREATE TABLE posts (
   is_op BOOLEAN NOT NULL,
   parent INTEGER,
   ip TEXT NOT NULL,
+  tag TEXT NOT NULL,
   date_posted DATETIME NOT NULL
 );
