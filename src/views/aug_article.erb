@@ -17,7 +17,8 @@
             <div class="title"><%= Sanitize.clean(res["title"]) %></div>
             <div class="author">By <%= Sanitize.clean(res["author"]) %></div>
             <pre id="content"><%= Sanitize.clean(res["content"]) %></pre>
-          </div>
+          </div><br>
+          <div class="meta">This article was filed under <a href="/tag/<%= Sanitize.clean(res["tag"]) %>">#<%= Sanitize.clean(res["tag"]) %></a></div><br>
         <% end %>
       </div>
       <% con.query("SELECT * FROM posts WHERE parent=" + con.escape(id)).each do |res| %>
