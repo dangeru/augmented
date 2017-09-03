@@ -3,15 +3,19 @@
   <head>
     <title>The Augmented Eye - Post an Article</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/augmented.css">
   </head>
+
   <body>
-    <img src="/static/augmented.png" id="logo">
-    <form action="/post" method="post">
-      <input type="input" name="title" value="" style="float: left;"> <span id="author">Title</span><br><br>
-      <input type="input" name="author" value="" style="float: left;"> <span id="author">Author</span><br><br>
-      <input type="input" name="tag" value="" style="float: left;"> <span id="author">Tag</span><br><br><span id="author">Post body</span>
-      <textarea rows="5" cols="50" style="display: block; margin-right: 10px; width: 285px; height:100px;" name="body"></textarea>
-      <input type="submit" name="submit" value="Send" style="float: right;"><br>
-    </form>
+    <div id="bodycontainer">
+      <img src="/static/augmented.png" id="logo">
+      <form action="/post" method="post">
+        <input type="input" name="title" value="" style="float: left;"> <span class="label">Title</span><br><br>
+        <input type="input" name="author" value="" style="float: left;"> <span class="label">Author</span><br><br>
+        <input type="input" name="tag" value="" style="float: left;"> <span class="label">Tag</span><br><br><span class="label">Post body</span>
+        <textarea rows="5" cols="50" style="display: block; margin-right: 10px; width: 285px; height:100px;" name="body"></textarea>
+        <input type="submit" name="submit" value="Send" style="float: right;"><br>
+      </form>
+    </div>
   </body>
 </html>
