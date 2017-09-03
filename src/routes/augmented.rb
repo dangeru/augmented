@@ -119,6 +119,15 @@ module Sinatra
             end
             return [403, "Check your username and password"]
           end
+
+          app.get '/logout' do
+            if session[:author].nil? then
+              redirect('/author', 303)
+            else
+              session[:author] = nil
+              redirect('/author', 303)
+            end
+          end
         end
       end
     end
