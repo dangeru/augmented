@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>The Augmented Eye - Author Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/augmented.css">
+  </head>
+
+  <body>
+    <div id="bodycontainer">
+      <a href="/"><img src="/static/augmented.png" alt="Augmented" /></a>
+      <div id="postcontainer"><br>
+        <div class="title">Hello <%= session[:author] %>.</div>
+        <a href="/post">Post an article</a>
+        <a href="/logout">Log out</a>
+      </div>
+    </div>
+  </body>
+</html>

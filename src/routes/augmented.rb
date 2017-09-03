@@ -106,7 +106,7 @@ module Sinatra
             if session[:author].nil? then
               erb :aug_login
             else
-              "Hello author."
+              erb :aug_author
             end
           end
 
