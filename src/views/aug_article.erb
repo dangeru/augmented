@@ -24,7 +24,7 @@
       </div><br>
       <% con.query("SELECT * FROM posts WHERE parent=" + con.escape(id)).each do |res| %>
         <% additional = "" %>
-        <% additional = "color: #ED145B;" if res["is_signed_author"] != 0 %>
+        <% additional = "color: #5E0E36;" if res["is_signed_author"] != 0 %>
         <div id="author" class="label">Author: <span style="<%= additional %>"><%= Sanitize.clean(res["author"]) %></span>, Date: <%= res["date_posted"] %></div>
         <pre id="content" class="label">| <%= Sanitize.clean(res["content"]) %></pre>
       <% end %>
