@@ -22,7 +22,9 @@
         <% end %>
       </div><br>
       <% con.query("SELECT * FROM posts WHERE parent=" + con.escape(id)).each do |res| %>
-        <div id="author" class="label">Author: <%= Sanitize.clean(res["author"]) %>, Date: <%= res["date_posted"] %></div>
+        <% additional = "" %>
+        <% if res["is_signed_author"] then additional += "color: #ED145B;" end %>
+        <div id="author" class="label">Author: <span class="<%= additional %>"><%= Sanitize.clean(res["author"]) %></span>, Date: <%= res["date_posted"] %></div>
         <pre id="content" class="label">| <%= Sanitize.clean(res["content"]) %></pre>
       <% end %>
       <form action="/comment" method="POST">
