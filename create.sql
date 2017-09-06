@@ -8,6 +8,7 @@ CREATE TABLE posts (
   content TEXT,
 	author TEXT NOT NULL,
   is_op BOOLEAN NOT NULL,
+  is_signed_author BOOLEAN,
   parent INTEGER,
   ip TEXT NOT NULL,
   tag TEXT,
