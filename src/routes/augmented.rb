@@ -86,11 +86,17 @@ module Sinatra
             parent = params[:parent]
             ip = get_ip(con, request, env);
 
+            if session[:author] && params[:signed] then
+              signed = 1
+            else
+              signed = 0
+            end
+
             if looks_like_spam(con, ip, env) then
               return [403, "Flood detected, post discarded"]
             end
 
-            query(con, "INSERT INTO posts (content, author, ip, is_op, parent) VALUES (?, ?, ?, ?, ?)", content, author, ip, 0, parent);
+            query(con, "INSERT INTO posts (content, author, ip, is_op, parent, is_signed_author) VALUES (?, ?, ?, ?, ?, ?)", content, author, ip, 0, parent, signed);
             redirect("/article/" + parent, 303);
           end
 
