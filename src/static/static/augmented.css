@@ -55,6 +55,7 @@ pre {
 
 #content {
   font-size: 17px;
+  max-width: 400px;
 }
 
 #postcontainer {
