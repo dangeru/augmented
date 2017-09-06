@@ -41,6 +41,11 @@ a:visited {
 
 pre {
   font-family: 'CyberpunkWaifus';
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
 }
 
 #logo {
@@ -56,7 +61,6 @@ pre {
 #content {
   font-size: 17px;
   max-width: 400px;
-  word-wrap: break-word;
 }
 
 #postcontainer {
@@ -73,7 +77,6 @@ pre {
   width: auto;
   display: table;
   margin: 0 auto;
-  word-wrap: break-word;
 }
 
 #articlecontainer {
