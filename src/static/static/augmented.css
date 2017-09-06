@@ -73,6 +73,7 @@ pre {
   width: auto;
   display: table;
   margin: 0 auto;
+  word-wrap: break-word;
 }
 
 #articlecontainer {
