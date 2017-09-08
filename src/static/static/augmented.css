@@ -82,7 +82,8 @@ pre {
 #articlecontainer {
   text-align: left;
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-right: 10px;
 }
 
 .meta {
@@ -95,6 +96,7 @@ pre {
 
 .title {
   font-size: 26px;
+  text-align: center;
 }
 
 .author {
