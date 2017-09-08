@@ -134,6 +134,10 @@ module Sinatra
               redirect('/author', 303)
             end
           end
+
+          app.get '/feed' do
+            erb :aug_feed
+          end
         end
       end
     end
