@@ -111,9 +111,10 @@ pre {
 }
 
 textarea, form > input[type='text'] {
-    resize: none;
-    background-color: #262626;
-    color: white;
-    border: none;
-    border-radius: 4px;
+  font-family: 'CyberpunkWaifus';
+  resize: none;
+  background-color: #262626;
+  color: white;
+  border: none;
+  border-radius: 4px;
 }
