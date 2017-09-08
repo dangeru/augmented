@@ -1,4 +1,7 @@
 {
+  "hostname": "example.com",
+  "name": "The Augmented Eye",
+  "description": "Test Instance",
   "authors": [
     {
       "username": "test",

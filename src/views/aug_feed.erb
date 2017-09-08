@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>The Augmented Eye</title>
-    <link>https://example.com/</link>
-    <description>Test Instance</description>
+    <title><%= config["name"]%></title>
+    <link>http://<%= config["hostname"]%>/</link>
+    <description><%= config["description"]%></description>
     <% con.query("SELECT * FROM posts WHERE is_op=1 ORDER BY post_id DESC;").each do |res| %>
     <item>
       <title><%= Sanitize.clean(res["title"]) %></title>
       <author><%= Sanitize.clean(res["author"]) %></author>
-      <link>http://example.com/article/<%= res["post_id"] %></link>
+      <link>http://<%= config["hostname"]%>/article/<%= res["post_id"] %></link>
       <description>TODO</description>
     </item>
     <% end %>
