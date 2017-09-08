@@ -12,7 +12,7 @@
       <div id="postcontainer">
         <% con.query("SELECT * FROM posts WHERE post_id=" + con.escape(id)).each do |res| %>
           <script>
-            document.title =  "<%= Sanitize.clean(res["title"]) %> - The Augmented Eye";
+            document.title =  '<%= Sanitize.clean(res["title"]) %> - The Augmented Eye';
           </script>
 
           <div id="articlecontainer">
@@ -34,7 +34,7 @@
           <input type="checkbox" name="signed" id="signed" />&nbsp;<span class="label">Signed?</span>
           <br>
         <% end %>
-        <input type="input" name="author" value="" style="float: left;">&nbsp;<span class="label">Name</span><br><br><span class="label">Comment</span>
+        <input type="text" name="author" value="" style="float: left;">&nbsp;<span class="label">Name</span><br><br><span class="label">Comment</span>
 			  <textarea rows="5" cols="50" style="display: block; margin-right: 10px; width: 285px; height:100px;" name="body"></textarea>
 			  <input type="submit" name="submit" value="Send" style="float: right;"><br>
         <input type='text' style='display: none' name='parent' id='parent' value='<%= id %>' />
