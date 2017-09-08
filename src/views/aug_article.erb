@@ -14,7 +14,7 @@
           <script>
             document.title = <%= JSON.dump(Sanitize.clean(res["title"])) %> + ' - The Augmented Eye';
           </script>
-          <meta property="og:title" content="<%= Sanitize.clean(res["title"])%> - The Augmented Eye">
+          <meta property="og:title" content=<%= JSON.dump(Sanitize.clean(res["title"])) %>>
           <meta property="og:description" content="<%= Sanitize.clean(res["description"]) %>">
           <div id="articlecontainer">
             <div class="title"><%= Sanitize.clean(res["title"]) %></div>
