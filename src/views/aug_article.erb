@@ -18,7 +18,7 @@
           <meta property="og:description" content="<%= Sanitize.clean(res["description"]) %>">
           <div id="articlecontainer">
             <div class="title"><%= Sanitize.clean(res["title"]) %></div>
-            <img id="header" href="<%= Sanitize.clean(res["attach"]) %>" />
+            <img id="header" src="<%= Sanitize.clean(res["attach"]) %>" />
             <div class="author">By <%= Sanitize.clean(res["author"]) %></div>
             <pre id="content"><%= markdown.render(Sanitize.clean(res["content"])) %></pre>
           </div>
