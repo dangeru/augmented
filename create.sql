@@ -7,6 +7,7 @@ CREATE TABLE posts (
 	title TEXT,
   content TEXT NOT NULL,
   description TEXT,
+  attach TEXT,
 	author TEXT NOT NULL,
   is_op BOOLEAN NOT NULL,
   is_signed_author BOOLEAN,

@@ -7,6 +7,7 @@
 
 require 'mysql2'
 require 'sanitize'
+require 'redcarpet'
 
 def make_con()
   return Mysql2::Client.new(:host => "localhost", :username => "augmented", :password => "augmented", :database => "augmented")
@@ -102,7 +103,7 @@ module Sinatra
           end
 
           app.get "/article/:id" do |id|
-            erb :aug_article, :locals => {:con => make_con(), :id => id}
+            erb :aug_article, :locals => {:con => make_con(), :id => id, :markdown => Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)}
           end
 
           app.get "/tag/:tag" do |tag|
