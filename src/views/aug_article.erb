@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="bodycontainer">
-      <a href="/"><img src="/static/augmented.png" alt="Augmented" /></a>
+      <a href="/"><img src="/static/augmented.png" alt="Augmented" id="logo" /></a>
       <div id="postcontainer">
         <% con.query("SELECT * FROM posts WHERE post_id=" + con.escape(id)).each do |res| %>
           <script>

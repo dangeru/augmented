@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="bodycontainer">
-      <a href="/"><img src="/static/augmented.png" alt="Augmented" /></a>
+      <a href="/"><img src="/static/augmented.png" alt="Augmented" id="logo" /></a>
       <div id="postcontainer"><br>
         <div class="title">Searching by tag #<%= tag %></div>
         <% con.query("SELECT * FROM posts WHERE is_op=1 AND tag='" + con.escape(tag) + "' ORDER BY post_id DESC;").each do |res| %>
