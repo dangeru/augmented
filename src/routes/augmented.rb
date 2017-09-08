@@ -70,8 +70,10 @@ module Sinatra
               tag = params[:tag]
               tagline = params[:tagline]
               ip = get_ip(con, request, env);
+              attach = ""
+              if params[:attach] then attach = params[:attach] end
 
-              query(con, "INSERT INTO posts (title, content, author, ip, is_op, tag, description) VALUES (?, ?, ?, ?, ?, ?, ?)", title, content, author, ip, 1, tag, tagline);
+              query(con, "INSERT INTO posts (title, content, author, ip, is_op, tag, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", title, content, author, ip, 1, tag, tagline, attach);
 
               query(con, "SELECT LAST_INSERT_ID() AS id").each do |res|
                 href = "/article/" + res["id"].to_s
