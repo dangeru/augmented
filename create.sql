@@ -5,7 +5,8 @@ USE augmented;
 CREATE TABLE posts (
   post_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	title TEXT,
-  content TEXT,
+  content TEXT NOT NULL,
+  description TEXT,
 	author TEXT NOT NULL,
   is_op BOOLEAN NOT NULL,
   is_signed_author BOOLEAN,

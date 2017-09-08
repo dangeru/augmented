@@ -9,7 +9,7 @@
       <title><%= Sanitize.clean(res["title"]) %></title>
       <author><%= Sanitize.clean(res["author"]) %></author>
       <link>http://<%= config["hostname"]%>/article/<%= res["post_id"] %></link>
-      <description>TODO</description>
+      <description><%= Sanitize.clean(res["description"]) %></description>
     </item>
     <% end %>
   </channel>
