@@ -12,7 +12,7 @@
       <div id="postcontainer">
         <% con.query("SELECT * FROM posts WHERE post_id=" + con.escape(id)).each do |res| %>
           <script>
-            document.title = <% JSON.dumps(Sanitize.clean(res["title"])) %> + ' - The Augmented Eye';
+            document.title = <%= JSON.dumps(Sanitize.clean(res["title"])) %> + ' - The Augmented Eye';
           </script>
 
           <div id="articlecontainer">
