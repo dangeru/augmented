@@ -136,7 +136,7 @@ module Sinatra
           end
 
           app.get '/feed' do
-            erb :aug_feed
+            erb :aug_feed, :locals => {:con => make_con()}
           end
         end
       end
