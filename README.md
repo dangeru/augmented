@@ -10,4 +10,4 @@ Ruby 2.3+, MySQL/MariaDB
 # Usage
 Firstly run `sudo mysql -uroot -p < create.sql` and after doing that start augmented with `sudo rackup`.
 
-![aug in use](/meta/aug.png)
+![aug in use](/meta/aug.PNG)
