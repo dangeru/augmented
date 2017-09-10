@@ -31,9 +31,9 @@ for f in glob.glob("post/*.txt"):
             r += line + "\n"
     if r != "": rs.append([*meta, r])
     out.write("DELETE FROM x;\n")
-    out.write("INSERT INTO posts (title, content, author, date_posted) VALUES (" + con.escape(title) + ", "+con.escape(contents)+", "+con.escape(author)+", "+(make_datetime(rs[0][1]) if len(rs) > 0 else "CURRENT_TIMESTAMP()")+");\n")
+    out.write("INSERT INTO posts (title, content, author, date_posted, is_op, ip) VALUES (" + con.escape(title) + ", "+con.escape(contents)+", "+con.escape(author)+", "+(make_datetime(rs[0][1]) if len(rs) > 0 else "CURRENT_TIMESTAMP()")+", TRUE, '');\n")
     out.write("INSERT INTO x (id) VALUES (LAST_INSERT_ID());\n")
     for comment in rs:
-        out.write("INSERT INTO posts (description, author, parent, date_posted) VALUES ("+con.escape(comment[2])+", "+con.escape(comment[0])+", (SELECT id FROM x), "+make_datetime(comment[1])+");\n")
+        out.write("INSERT INTO posts (description, author, parent, date_posted, is_op, ip) VALUES ("+con.escape(comment[2])+", "+con.escape(comment[0])+", (SELECT id FROM x), "+make_datetime(comment[1])+", FALSE, '');\n")
 out.write("DROP TABLE x;\n")
 out.close()
