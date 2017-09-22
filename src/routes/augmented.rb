@@ -47,7 +47,12 @@ module Sinatra
           config = JSON.parse(config_raw)
 
           app.get '/' do
-            erb :aug_index, :locals => {:con => make_con()}
+            if not params[:page]
+              offset = 0;
+            else
+              offset = params[:page].to_i * 10;
+            end
+            erb :aug_index, :locals => {:con => make_con(), :offset => params[:page]}
           end
 
           app.get '/post' do
