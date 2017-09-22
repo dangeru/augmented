@@ -18,7 +18,7 @@
           <meta property="og:description" content="<%= Sanitize.clean(res["description"]) %>">
           <div id="articlecontainer">
             <div class="title"><%= Sanitize.clean(res["title"]) %></div>
-            <% unless res["attach"] == "" %>
+            <% unless res["attach"].empty? %>
               <img id="header" src="<%= Sanitize.clean(res["attach"]) %>" />
             <% end %>
             <div class="author">By <%= Sanitize.clean(res["author"]) %></div>
