@@ -52,7 +52,7 @@ module Sinatra
             else
               offset = params[:page].to_i * 10;
             end
-            erb :aug_index, :locals => {:con => make_con(), :offset => params[:page]}
+            erb :aug_index, :locals => {:con => make_con(), :offset => offset}
           end
 
           app.get '/post' do
