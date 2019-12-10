@@ -27,23 +27,24 @@
           <div class="meta">This article was filed under <a href="/tag/<%= Sanitize.clean(res["tag"]) %>">#<%= Sanitize.clean(res["tag"]) %></a></div>
         <% end %>
       </div><br>
-      <% con.query("SELECT * FROM posts WHERE parent=" + con.escape(id)).each do |res| %>
-        <% additional = "" %>
-        <% additional = "color: #5E0E36;" if res["is_signed_author"] != 0 %>
-        <% res["author"] = "Anonymous" if res["author"] == "" %>
-        <div id="author" class="label">Author: <span style="<%= additional %>"><%= Sanitize.clean(res["author"]) %></span>, Date: <%= res["date_posted"] %></div>
-        <pre id="content" class="label">| <%= Sanitize.clean(res["content"]) %></pre>
-      <% end %>
+      <div class="label">Post your comment:</div>
       <form action="/comment" method="POST">
         <% if session[:author] %>
           <input type="checkbox" name="signed" id="signed" />&nbsp;<span class="label">Signed?</span>
           <br>
         <% end %>
         <input type="text" name="author" value="" style="float: left;">&nbsp;<span class="label">Name</span><br><br><span class="label">Comment</span>
-			  <textarea rows="5" cols="50" style="display: block; margin-right: 10px; width: 285px; height:100px;" name="body"></textarea>
-			  <input type="submit" name="submit" value="Send" style="float: right;"><br>
+        <textarea rows="5" cols="50" style="display: block; margin-right: 10px; width: 285px; height:100px;" name="body"></textarea>
+        <input type="submit" name="submit" value="Send" style="float: right;"><br>
         <input type='text' style='display: none' name='parent' id='parent' value='<%= id %>' />
-      </form>
+      </form><br>
+      <% con.query("SELECT * FROM posts WHERE parent=" + con.escape(id) + " ORDER BY date_posted DESC").each do |res| %>
+        <% additional = "" %>
+        <% additional = "color: #5E0E36;" if res["is_signed_author"] != 0 %>
+        <% res["author"] = "Anonymous" if res["author"] == "" %>
+        <div id="author" class="label">Author: <span style="<%= additional %>"><%= Sanitize.clean(res["author"]) %></span>, Date: <%= res["date_posted"] %></div>
+        <pre id="content" class="label">| <%= Sanitize.clean(res["content"]) %></pre>
+      <% end %>
     </div>
   </body>
 </html>

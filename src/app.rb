@@ -5,15 +5,17 @@
 #
 
 require 'sinatra/base'
-require 'json'
 
 require_relative 'routes/augmented'
+require_relative 'routes/config'
+require_relative 'routes/utils'
 
 class Augmented < Sinatra::Base
   register Sinatra::Augmented::Routing::Augmented
   configure do
-    set :bind, '0.0.0.0'
-    set :augmented_version, '0.0.1'
+    set :bind, Config.get['bind']
+    set :port, Config.get['port']
+    set :augmented_version, '1.0.0'
     set :public_folder, File.dirname(__FILE__) + '/static'
   end
 
