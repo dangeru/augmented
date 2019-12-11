@@ -4,6 +4,7 @@
   "description": "Test Instance",
   "bind": "0.0.0.0",
   "port": 8181,
+  "db_name": "augmented",
   "authors": [
     {
       "username": "test",

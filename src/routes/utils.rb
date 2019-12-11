@@ -5,7 +5,7 @@
 #
 
 def make_con()
-  return Mysql2::Client.new(:host => "localhost", :username => "augmented", :password => "augmented", :database => "augmented")
+  return Mysql2::Client.new(:host => "localhost", :username => "augmented", :password => "augmented", :database => Config.get["db_name"])
 end
 
 def query(con, stmt, *args)
