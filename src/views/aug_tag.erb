@@ -11,8 +11,8 @@
       <a href="/"><img src="/static/augmented.png" alt="Augmented" id="logo" /></a>
       <div id="postcontainer"><br>
         <div class="title">Searching by tag #<%= tag %></div>
-        <% con.query("SELECT * FROM posts WHERE is_op=1 AND tag='" + con.escape(tag) + "' ORDER BY post_id DESC;").each do |res| %>
-          <span class="meta">Author: <%= Sanitize.clean(res["author"]) %>, tagged under: <a href="/tag/<%= res["tag"] %>">#<%= res["tag"] %></a></span><br>
+        <% con.query("SELECT post_id, author, title, tag FROM posts WHERE is_op=1 AND tag LIKE '%" + con.escape(tag) + "%' ORDER BY post_id DESC").each do |res| %>
+          <span class="meta">Author: <%= Sanitize.clean(res["author"]) %>, tagged under: <%= tags_prepare_html(res["tag"]) %></span><br>
           <a href="/article/<%= res["post_id"] %>"><%= Sanitize.clean(res["title"]) %></a><br><br>
         <% end %>
       </div>

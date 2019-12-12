@@ -32,3 +32,12 @@ def looks_like_spam(con, ip, env)
   end
   return result
 end
+
+def tags_prepare_html(tags)
+  result = ""
+  tags.split(",").each do |tag|
+    tag = tag.strip
+    result += "<a href=\"/tag/#{tag}\">\##{tag}</a> "
+  end
+  return result
+end

@@ -11,7 +11,7 @@
       <img src="static/augmented.png" alt="Augmented" id="logo"/><br>
       <div id="postcontainer"><br>
         <% con.query("SELECT * FROM posts WHERE is_op=1 ORDER BY post_id DESC LIMIT 10 OFFSET #{offset.to_s};").each do |res| %>
-          <span class="meta">Author: <%= Sanitize.clean(res["author"]) %>, tagged under: <a href="/tag/<%= res["tag"] %>">#<%= res["tag"] %></a></span><br>
+          <span class="meta">Author: <%= Sanitize.clean(res["author"]) %>, tagged under: <%= tags_prepare_html(res["tag"]) %></span><br>
           <a href="/article/<%= res["post_id"] %>" class="post"><%= Sanitize.clean(res["title"]) %></a><br><br>
         <% end %>
         <% con.query("SELECT COUNT(*) AS count FROM posts WHERE is_op=1").each do |res| ((res["count"]/10)+1).times do |i| %>
