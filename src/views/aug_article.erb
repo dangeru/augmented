@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Loading... - The Augmented Eye</title>
+    <title>Loading... - <%= Config.get["name"] %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/static/augmented.css">
     <link rel="shortcut icon" href="../static/favicon.ico">
@@ -12,7 +12,7 @@
       <div id="postcontainer">
         <% con.query("SELECT * FROM posts WHERE post_id=" + con.escape(id)).each do |res| %>
           <script>
-            document.title = <%= JSON.dump(Sanitize.clean(res["title"])) %> + ' - The Augmented Eye';
+            document.title = <%= JSON.dump(Sanitize.clean(res["title"])) %> + ' - <%= Config.get["name"] %>';
           </script>
           <meta property="og:title" content=<%= JSON.dump(Sanitize.clean(res["title"])) %>>
           <meta property="og:description" content="<%= Sanitize.clean(res["description"]) %>">
