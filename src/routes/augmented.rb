@@ -112,6 +112,28 @@ module Sinatra
             end
           end
 
+          app.get '/delete/:id' do |id|
+            if session[:author].nil? then
+              return [403, "Not permitted."]
+            else
+              con = make_con()
+
+              query(con, "DELETE FROM posts WHERE post_id = ?", id)
+              return "Success."
+            end
+          end
+
+          app.get '/ip_delete/:id/:ip' do |id, ip|
+            if session[:author].nil? then
+              return [403, "Not permitted."]
+            else
+              con = make_con()
+
+              query(con, "DELETE FROM posts WHERE parent = ? AND ip = ?", id, ip)
+              return "Success."
+            end
+          end
+
           app.get '/feed' do
             erb :aug_feed, :locals => {:con => make_con(), :config => Config.get}
           end

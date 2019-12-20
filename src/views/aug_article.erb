@@ -42,7 +42,7 @@
         <% additional = "" %>
         <% additional = "color: #5E0E36;" if res["is_signed_author"] != 0 %>
         <% res["author"] = "Anonymous" if res["author"] == "" %>
-        <div id="author" class="label">Author: <span style="<%= additional %>"><%= Sanitize.clean(res["author"]) %></span>, Date: <%= res["date_posted"] %></div>
+        <div id="author" class="label">Author: <span style="<%= additional %>"><%= Sanitize.clean(res["author"]) %></span>, Date: <%= res["date_posted"] %> <% if session[:author] %><a class="label" href="/delete/<%= res["post_id"] %>">delete</a> <a class="label" href="/ip_delete/<%= con.escape(id) %>/<%= res["ip"] %>">delete by ip</a><% end %></div>
         <pre id="content" class="label">| <%= Sanitize.clean(res["content"]) %></pre>
       <% end %>
     </div>
