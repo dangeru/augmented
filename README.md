@@ -5,7 +5,7 @@ Blog/News service based on Ruby and Sinatra.
 Ruby 2.3+, MySQL/MariaDB
 
 # Required Gems
-`sinatra`, `mysql2`, `redcarpet`
+`sinatra`, `mysql2`, `redcarpet`, `sanitize`
 
 # Usage
 Firstly run `sudo mysql -uroot -p < create.sql` and after doing that start augmented with `sudo rackup`.
